@@ -1,0 +1,11 @@
+{
+  "name": "mint-century",
+  "version": "1.0.0",
+  "description": "A website to buy MCM items and interact with other MCM enthusiasts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Layne",
+  "license": "ISC"
+}
