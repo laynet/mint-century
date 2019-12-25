@@ -1,0 +1,4 @@
+psql -U postgres (!to get into postgres)
+\l to list db
+\c to connect to a db - ***mint-century(this is the dev) and mint-century-test***
+\dt to list table names
