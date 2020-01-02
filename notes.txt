@@ -5,5 +5,9 @@ psql -U postgres (!to get into postgres)
 
 
 
+follow this link https://developers.sap.com/tutorials/webide-github-merge-pull-request.html and then do
+Laynes-MacBook-Pro:mint-century laynetaylor$ git pull origin master after merging to hand in assignment
 
-Laynes-MacBook-Pro:mint-century laynetaylor$ git pull origin master
+
+BUGS
+messages flash behind navbar

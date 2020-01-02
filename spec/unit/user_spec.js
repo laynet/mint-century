@@ -1,5 +1,6 @@
 const sequelize = require("../../src/db/models/index").sequelize;
 const User = require("../../src/db/models").User;
+
 describe("User", () => {
   beforeEach(done => {
     sequelize
@@ -15,7 +16,7 @@ describe("User", () => {
 
   describe("#create()", () => {
     it("should create a User object with a valid email and password", done => {
-      URLSearchParams.create({
+      User.create({
         email: "user@example.com",
         password: "123456"
       })
