@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <main class="container">
+      <% include ../static/partials/navbar.ejs %>
+      <h1>Posts</h1>
+      <ul class="list-group">
+        <% posts.forEach((post) => { %>
+        <li class="list-group-item">
+          <a href="/posts/<% post.id %>"> <%= post.title %></a>
+        </li>
+        <% }) %>
+      </ul>
+    </main>
+  </body>
+</html>
