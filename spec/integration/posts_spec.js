@@ -42,4 +42,34 @@ describe("routes : posts", () => {
       });
     });
   });
+  describe("POST /posts/create", () => {
+    const options = {
+      url: `${base}create`,
+      form: {
+        title: "Watching snow melt",
+        body:
+          "Without a doubt my favorite things to do beside watching paint dry!"
+      }
+    };
+    it("should create a new post and redirect", done => {
+      request.post(options, (err, res, body) => {
+        console.log("POST ", post);
+        Post.findOne({ where: { title: "Wathcing snow melt" } })
+          .then(post => {
+            expect(res.statusCode).toBe(303);
+
+            expect(post.title).toBe("Watching snow melt");
+            expect(post.body).toBe(
+              "Without a doubt my favorite things to do beside watching paint dry!"
+            );
+
+            done();
+          })
+          .catch(err => {
+            console.log(err);
+            done();
+          });
+      });
+    });
+  });
 });
