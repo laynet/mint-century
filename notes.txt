@@ -8,6 +8,8 @@ psql -U postgres (!to get into postgres)
 follow this link https://developers.sap.com/tutorials/webide-github-merge-pull-request.html and then do
 Laynes-MacBook-Pro:mint-century laynetaylor$ git pull origin master after merging to hand in assignment
 
+$ sequelize db:migrate:undo:all && sequelize db:migrate:undo:all --env test
+$ sequelize db:migrate && sequelize db:migrate --env test
 
 BUGS
 messages flash behind navbar
