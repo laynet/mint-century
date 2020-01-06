@@ -71,4 +71,13 @@ describe("routes : posts", () => {
       });
     });
   });
+  describe("GET /posts/:id", () => {
+    it("should render a view with the selected post", done => {
+      request.get(`${base}${this.post.id}`, (err, res, body) => {
+        expect(err).toBeNull();
+        expect(body).toContain("Snowball Fighting");
+        done();
+      });
+    });
+  });
 });
