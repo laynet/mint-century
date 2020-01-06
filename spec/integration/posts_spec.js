@@ -53,7 +53,7 @@ describe("routes : posts", () => {
     };
     it("should create a new post and redirect", done => {
       request.post(options, (err, res, body) => {
-        Post.findOne({ where: { title: "Wathcing snow melt" } })
+        Post.findOne({ where: { title: "Watching snow melt" } })
           .then(post => {
             expect(res.statusCode).toBe(303);
 
