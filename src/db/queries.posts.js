@@ -11,13 +11,11 @@ module.exports = {
       });
   },
   addPost(newPost, callback) {
-    console.log("QUERIES ADDPOST RAN");
     return Post.create({
       title: newPost.title,
       body: newPost.body
     })
       .then(post => {
-        console.log("QUERIES POST ", post);
         callback(null, post);
       })
       .catch(err => {
