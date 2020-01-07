@@ -54,7 +54,7 @@ module.exports = {
       }
     });
   },
-  updat(req, res, next) {
+  update(req, res, next) {
     postQueries.updatePost(req.params.id, req.body, (err, post) => {
       if (err || post == null) {
         res.redirect(404, `/posts/${req.params.id}/edit`);
