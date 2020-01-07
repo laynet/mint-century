@@ -80,4 +80,48 @@ describe("routes : posts", () => {
       });
     });
   });
+  describe("POST /posts/:id/destroy", () => {
+    it("should delete the post with the associated ID", done => {
+      Post.findAll().then(posts => {
+        const postCountBeforeDelete = posts.length;
+        expect(postCountBeforeDelete).toBe(1);
+        request.post(`${base}${this.post.id}/destroy`, (err, res, body) => {
+          Post.findAll().then(posts => {
+            expect(err).toBeNull();
+            expect(posts.length).toBe(postCountBeforeDelete - 1);
+            done();
+          });
+        });
+      });
+    });
+  });
+  describe("GET /posts/:id/edit", () => {
+    it("should render a view with an edit post form", done => {
+      request.get(`${base}${this.post.id}/edit`, (err, res, body) => {
+        expect(err).toBeNull();
+        expect(body).toContain("Edit Post");
+        expect(body).toContain("Snowball Fighting");
+        done();
+      });
+    });
+  });
+  describe("POST /posts/:id/update", () => {
+    it("should update the topic with the given value", done => {
+      const options = {
+        url: `${base}${this.post.id}/update`,
+        form: {
+          title: "Snowman Building Competition"
+        }
+      };
+      request.post(options, (err, res, body) => {
+        expect(err).toBeNull();
+        Post.findOne({
+          where: { id: this.post.id }
+        }).then(post => {
+          expect(post.title).toBe("Snowman Building Competition");
+          done();
+        });
+      });
+    });
+  });
 });

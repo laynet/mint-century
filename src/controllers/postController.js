@@ -35,5 +35,32 @@ module.exports = {
         res.render("posts/show", { post });
       }
     });
+  },
+  destroy(req, res, next) {
+    postQueries.deletePost(req.params.id, (err, post) => {
+      if (err) {
+        res.redirect(500, `/posts/${req.params.id}`);
+      } else {
+        res.redirect(303, "/posts");
+      }
+    });
+  },
+  edit(req, res, next) {
+    postQueries.getPost(req.params.id, (err, post) => {
+      if (err || post == null) {
+        res.redirect(404, "/");
+      } else {
+        res.render("posts/edit", { post });
+      }
+    });
+  },
+  updat(req, res, next) {
+    postQueries.updatePost(req.params.id, req.body, (err, post) => {
+      if (err || post == null) {
+        res.redirect(404, `/posts/${req.params.id}/edit`);
+      } else {
+        res.redirect(`/posts/${post.id}`);
+      }
+    });
   }
 };
