@@ -11,5 +11,14 @@ Laynes-MacBook-Pro:mint-century laynetaylor$ git pull origin master after mergin
 $ sequelize db:migrate:undo:all && sequelize db:migrate:undo:all --env test
 $ sequelize db:migrate && sequelize db:migrate --env test
 
+
+
+didn't do a topic/post policy don't think i need into
+
 BUGS
 messages flash behind navbar
+
+left off 
+vscode deletePost(id, callback) {
+
+    bloccit/src/db/queries.topics.js

@@ -8,6 +8,9 @@
       <% include ../static/partials/navbar.ejs %>
       <h1>....(this is here because there's a bug hiding things).....</h1>
       <h1>Posts</h1>
+      <% if(currentUser && currentUser.isAdmin()) { %>
+      <a href="posts/new" class="btn btn-success">New Post</a>
+      <% } %>
 
       <ul class="list-group">
         <% posts.forEach((post) => { %>
