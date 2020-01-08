@@ -8,7 +8,18 @@
     <main class="container">
       <h1>.....bug that's hiding things ........</h1>
       <h1><%= post.title %></h1>
+
       <p><%= post.body %></p>
+      <% if(currentUser && currentUser.isAdmin()) { %>
+      <a href="/posts/<%= post.id %>/edit" class="btn btn-warning">Edit</a>
+      <form
+        style="display:initial"
+        action="/posts/<%= post.id %>/destroy"
+        method="post"
+      >
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+      <% } %>
     </main>
     <% include ../static/partials/baseScripts.ejs %>
   </body>
